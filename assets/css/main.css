@@ -1,11 +1,21 @@
 @import url(fontawesome-all.min.css);
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
 
-/*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+:root {
+	--website_bg_colour: #1e5367;
+	--bg_colour_main: #f8f4e3;
+	--text_colour_not_button: #000000;
+	--button_bg_not_hover: #BF4A5B;
+	--button_bg_hover: #d17b88 ;
+	--button_non_hover_text: #f8f4e3cc;
+	--button_hover_text: #252525;
+	--nav_active_colour: #BF4A5B;
+	--nav_hover_colour: #d17b88;
+	--nav_bg_colour: #f8f4e3 ;
+	--nav_bg_colour_scroll: #f8f4e3e3;
+	--top_nav_active_colour: #BF4A5B;
+}
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -99,7 +109,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #1e5367;
+		background-color: var(--website_bg_colour);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -311,7 +321,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: var(--text_colour_not_button);
 	}
 
 	blockquote {
@@ -2345,7 +2355,7 @@ input, select, textarea {
 
 	.icon.alt {
 		border-color: rgba(255, 255, 255, 0.35);
-		color: #ffffff;
+		color: var(--text_colour_not_button);
 	}
 
 		.icon.alt:hover {
@@ -2484,7 +2494,7 @@ input, select, textarea {
 	}
 
 	dl dt {
-		color: #ffffff;
+		color: var(--text_colour_not_button);
 	}
 
 /* Actions */
@@ -2773,7 +2783,7 @@ input, select, textarea {
 		}
 
 	table th {
-		color: #ffffff;
+		color: var(--text_colour_not_button);
 	}
 
 	table thead {
@@ -3221,7 +3231,7 @@ input, select, textarea {
 		width: 64em;
 		max-width: calc(100% - 4em);
 		padding: 1em;
-		background-color: #f7f7f7;
+		background-color: var(--nav_bg_colour);
 		border-top-left-radius: 0.25em;
 		border-top-right-radius: 0.25em;
 		cursor: default;
@@ -3293,12 +3303,12 @@ input, select, textarea {
 				}
 
 					#nav ul li a:hover {
-						background-color: #c6e6d8;
+						background-color:var(--nav_hover_colour);
 						
 					}
 
 					#nav ul li a.active {
-						background-color: #8bc3ce;
+						background-color: var(--nav_active_colour);
 						box-shadow: none;
 						color: #ffffff;
 					}
@@ -3307,7 +3317,7 @@ input, select, textarea {
 			position: fixed;
 			top: 0;
 			padding: 0.5em 1em;
-			background-color: rgba(247, 247, 247, 0.95);
+			background-color: var(--nav_bg_colour_scroll);
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 			z-index: 10000;
@@ -3336,25 +3346,25 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #ffffff;
-		color: #636363;
+		background-color: var(--bg_colour_main);
+		color: var(--text_colour_not_button);
 		border-radius: 0.25em;
 	}
 
 		#main input, #main select, #main textarea {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main a:hover {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main strong, #main b {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main blockquote {
@@ -3379,9 +3389,9 @@ input, select, textarea {
 		#main input[type="button"],
 		#main button,
 		#main .button {
-			background-color: transparent;
+			background-color: var(--button_bg_not_hover);
 			box-shadow: inset 0 0 0 1px #dddddd;
-			color: #636363 !important;
+			color: var(--button_non_hover_text) !important;
 		}
 
 			#main input[type="submit"]:hover,
@@ -3389,8 +3399,8 @@ input, select, textarea {
 			#main input[type="button"]:hover,
 			#main button:hover,
 			#main .button:hover {
-				background-color: #8bc3ce;
-				color: white !important;
+				background-color: var(--button_bg_hover);
+				color: var(--button_hover_text) !important;
 			}
 
 			#main input[type="submit"]:active,
@@ -3444,7 +3454,7 @@ input, select, textarea {
 				}
 
 		#main label {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main input[type="text"],
@@ -3470,13 +3480,13 @@ input, select, textarea {
 		}
 
 			#main select option {
-				color: #636363;
+				color: var(--text_colour_not_button);
 				background: #ffffff;
 			}
 
 		#main input[type="checkbox"] + label,
 		#main input[type="radio"] + label {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 			#main input[type="checkbox"] + label:before,
@@ -3487,7 +3497,7 @@ input, select, textarea {
 
 		#main input[type="checkbox"]:checked + label:before,
 		#main input[type="radio"]:checked + label:before {
-			background-color: #636363;
+			background-color: var(--text_colour_not_button);
 			border-color: #636363;
 			color: #ffffff;
 		}
@@ -3528,7 +3538,7 @@ input, select, textarea {
 
 		#main .icon.alt {
 			border-color: #dddddd;
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 			#main .icon.alt:hover {
@@ -3544,7 +3554,7 @@ input, select, textarea {
 		}
 
 		#main dl dt {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main header.major h2:after {
@@ -3560,7 +3570,7 @@ input, select, textarea {
 			}
 
 		#main table th {
-			color: #636363;
+			color: var(--text_colour_not_button);
 		}
 
 		#main table thead {
@@ -3783,7 +3793,7 @@ input, select, textarea {
 
 		}
 	.active {
-		background-color: #16879c;
+		background-color: var(--top_nav_active_colour);
 	}
 
 @media (min-width: 550px) {
