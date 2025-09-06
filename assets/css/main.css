@@ -3824,6 +3824,35 @@ input, select, textarea {
   height: 100%;
 }
 
+@media (min-width: 550px) {
+  .responsive-iframe-container2 {padding-bottom: 75%;}
+}
+@media (max-width: 550px) {
+  .responsive-iframe-container2 {padding-bottom: 150%;}
+}
+.responsive-iframe-container2 {
+  position: relative;
+  padding-top: 0;
+  height: 0;
+  overflow: hidden;
+}
+.responsive-iframe-container2 iframe {
+  position: absolute;
+  top: 0%;
+  left: 12.5%;
+  width: 75%;
+  height: 100%;
+}
+
+.responsive-iframe-container2 div {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+
 .image_circular {
 			padding: 0.65em;
 			border-radius: 100%;
