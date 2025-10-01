@@ -3,16 +3,16 @@
 
 :root {
 	--website_bg_colour: #1e5367;
-	--bg_colour_main: #f8f4e3;
-	--text_colour_not_button: #000000;
+	--bg_colour_main: #F0F4F7;
+	--text_colour_not_button:#1A1A1A;
 	--button_bg_not_hover: #BF4A5B;
-	--button_bg_hover: #d17b88 ;
-	--button_non_hover_text: #f8f4e3cc;
+	--button_bg_hover: #d17b88;
+	--button_non_hover_text: #F0F4F7;
 	--button_hover_text: #252525;
 	--nav_active_colour: #BF4A5B;
 	--nav_hover_colour: #d17b88;
-	--nav_bg_colour: #f8f4e3 ;
-	--nav_bg_colour_scroll: #f8f4e3e3;
+	--nav_bg_colour: #F0F4F7;
+	--nav_bg_colour_scroll: #F0F4F7;
 	--top_nav_active_colour: #BF4A5B;
 }
 
@@ -2893,15 +2893,15 @@ input, select, textarea {
 		}
 
 			.statistics li.style1 {
-				background-color: #ff5757;
+				background-color: #ff7171;
 			}
 
 			.statistics li.style2 {
-				background-color: #16879c;
+				background-color: #71b8ff;
 			}
 
 			.statistics li.style3 {
-				background-color: #7ed957;
+				background-color: #00e773;
 			}
 
 			.statistics li.style4 {
