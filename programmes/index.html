@@ -147,6 +147,18 @@
               </ul>
             </div>
             <div class="responsive-iframe-container"><iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FLondon&showPrint=0&mode=AGENDA&showNav=0&showTitle=0&hl=en_GB&src=ZWIyZDg0Njk4ZTg5MzA4NmM2N2VkNGJhMWZkOTU2NDIxODVjZjYzMDdkZmZiYTUzYjhlYzQzZmY2OGMxYzYwZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%231e5367" style="border-width:0" width="800" height="600" frameborder="0" scrolling="yes"></iframe></div>
+            <img id="chart"
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8DHMzz3-OwEnm-QwHiUQ3cQX0df8ng9ivQnKsYJlDgflV8kqfA1ll0q2C-5M-iRI8ACyshA2pg2Vb/pubchart?oid=233854356&amp;format=image" 
+            alt="Live Election Application Tally"
+            style="width: 100%; max-width: 800px; height: auto; border-radius: 4px;">        
+            <script>
+                // Forces the image above to refresh
+                window.onload = function() {
+                    var chartImage = document.getElementById("chart");
+                    var currentUrl = chartImage.src;
+                    chartImage.src = currentUrl + "&timestamp=" + new Date().getTime();
+                };
+            </script>         
           </div>
         
 				<!-- Footer -->
