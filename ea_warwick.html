@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EA Warwick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a1a;
+  --ink-mid:#4a4a4a;
+  --ink-light:#888;
+  --rule:#e4e1db;
+  --cream:#f7f6f3;
+  --white:#ffffff;
+  --accent:#2d5a3d;
+  --accent-lt:#e7f0ea;
+  --accent-hover:#1f3f2b;
+  --nav-h:64px;
+  --max:980px;
+  --font-display:'Lora',Georgia,serif;
+  --font-body:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-size:16px;line-height:1.7;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+  padding:0 36px;
+  gap:0;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;margin-right:32px;flex-shrink:0;
+}
+
+.nav-tabs{
+  display:flex;align-items:stretch;gap:0;
+  list-style:none;flex:1;height:var(--nav-h);
+}
+.nav-tabs li a{
+  display:flex;align-items:center;
+  height:var(--nav-h);
+  padding:0 16px;
+  font-size:13.5px;font-weight:400;
+  color:var(--ink-mid);
+  text-decoration:none;
+  border-bottom:2px solid transparent;
+  transition:color 0.18s,border-color 0.18s;
+  white-space:nowrap;
+}
+.nav-tabs li a:hover{color:var(--accent)}
+.nav-tabs li a.active{
+  color:var(--accent);
+  font-weight:500;
+  border-bottom-color:var(--accent);
+}
+
+.nav-social{
+  display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0;
+}
+.nav-social a{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:6px;
+  color:var(--ink-mid);
+  border:1px solid var(--rule);
+  text-decoration:none;
+  transition:color 0.18s,border-color 0.18s,background 0.18s;
+}
+.nav-social a:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-lt)}
+.nav-social svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:var(--nav-h);min-height:100vh}
+.page.active{display:block}
+
+/* ── HERO ── */
+#page-home{padding-top:0}
+.hero{
+  position:relative;
+  height:100vh;
+  min-height:620px;
+  display:flex;
+  align-items:flex-end;
+  padding-bottom:80px;
+  overflow:hidden;
+  background:#9ba89d;
+  background-image:url('images/hero.png');
+  background-size:cover;
+  background-position:center 20%;
+  background-repeat:no-repeat;
+}
+
+
+.hero-content{
+  position:relative;z-index:2;
+  max-width:var(--max);margin:0 auto;width:100%;padding:0 48px;
+}
+.hero-eyebrow{
+  display:inline-block;font-size:11px;font-weight:500;
+  letter-spacing:0.13em;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);margin-bottom:16px;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(34px,5.5vw,60px);font-weight:400;
+  line-height:1.14;color:#fff;max-width:600px;letter-spacing:-0.02em;
+}
+.hero-title em{font-style:italic;color:rgba(255,255,255,0.8)}
+.hero-sub{
+  margin-top:20px;font-size:15.5px;
+  color:rgba(255,255,255,0.68);max-width:380px;line-height:1.65;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(8,16,10,0.80) 0%,
+    rgba(8,16,10,0.45) 50%,
+    rgba(8,16,10,0.15) 100%
+  );
+}
+.hero-actions{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;
+  font-family:var(--font-body);font-size:13.5px;font-weight:500;
+  padding:11px 24px;border-radius:5px;text-decoration:none;
+  transition:all 0.18s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost-light{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.45)}
+.btn-ghost-light:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.75)}
+
+/* ── HOME SECTIONS ── */
+.section{padding:80px 0}
+.section-inner{max-width:var(--max);margin:0 auto;padding:0 48px}
+.section-cream{background:var(--cream)}
+
+.label{
+  font-size:11px;font-weight:600;letter-spacing:0.13em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+}
+.h2{
+  font-family:var(--font-display);
+  font-size:clamp(26px,3.2vw,36px);font-weight:400;
+  line-height:1.18;letter-spacing:-0.02em;color:var(--ink);
+  margin-bottom:16px;
+}
+.body-text{font-size:15px;color:var(--ink-mid);line-height:1.75}
+
+/* What we do grid */
+.offerings{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+  margin-top:48px;
+}
+.offering{
+  background:var(--white);padding:26px 24px;
+  transition:background 0.18s;
+}
+.section-cream .offering{background:var(--cream)}
+.offering:hover{background:var(--cream)}
+.section-cream .offering:hover{background:var(--white)}
+.offering-icon{
+  width:34px;height:34px;background:var(--accent-lt);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.offering-icon svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.offering-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.offering-desc{font-size:13px;color:var(--ink-mid);line-height:1.6}
+
+/* principles */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:48px}
+.principles{list-style:none;margin-top:6px}
+.principles li{
+  display:flex;gap:14px;
+  padding:15px 0;border-top:1px solid var(--rule);
+  font-size:14px;color:var(--ink-mid);line-height:1.6;
+}
+.principles li:last-child{border-bottom:1px solid var(--rule)}
+.pnum{font-size:11px;font-weight:600;color:var(--accent);min-width:20px;padding-top:2px}
+
+/* stats */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.stat-card{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:8px;padding:22px 18px;
+}
+.stat-num{font-family:var(--font-display);font-size:34px;font-weight:600;color:var(--accent);line-height:1;margin-bottom:5px}
+.stat-desc{font-size:12.5px;color:var(--ink-light);line-height:1.5}
+.pullquote{
+  font-family:var(--font-display);font-size:17px;font-style:italic;
+  color:var(--ink-mid);line-height:1.6;
+  border-left:3px solid var(--accent);padding-left:18px;
+}
+
+/* ── PROGRAMMES PAGE ── */
+.page-header{
+  background:var(--cream);padding:52px 0 44px;
+  border-bottom:1px solid var(--rule);
+}
+.page-header .section-inner{max-width:var(--max);margin:0 auto;padding:0 48px}
+.page-header .label{margin-bottom:8px}
+.page-header .h2{margin-bottom:10px}
+.page-header .body-text{max-width:520px}
+
+.prog-list{max-width:var(--max);margin:0 auto;padding:40px 48px 80px}
+.prog-item{
+  border:1px solid var(--rule);border-radius:9px;overflow:hidden;
+  margin-bottom:10px;transition:border-color 0.18s;
+}
+.prog-item:hover{border-color:var(--accent)}
+.prog-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px;cursor:pointer;gap:14px;user-select:none;
+}
+.prog-left{display:flex;align-items:center;gap:13px}
+.prog-emoji{font-size:20px;width:32px;text-align:center;flex-shrink:0}
+.prog-name{font-size:14.5px;font-weight:500;color:var(--ink)}
+.prog-tag{
+  font-size:11px;font-weight:500;color:var(--accent);
+  background:var(--accent-lt);padding:2px 9px;border-radius:20px;
+  white-space:nowrap;flex-shrink:0;
+}
+.prog-toggle{
+  font-size:20px;color:var(--ink-light);transition:transform 0.22s;
+  flex-shrink:0;line-height:1;
+}
+.prog-item.open .prog-toggle{transform:rotate(45deg)}
+.prog-body{
+  display:none;padding:0 22px 22px 67px;
+  font-size:13.5px;color:var(--ink-mid);line-height:1.7;
+}
+.prog-item.open .prog-body{display:block}
+.prog-body p+p{margin-top:10px}
+.prog-links{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.prog-links a{
+  font-size:13px;font-weight:500;color:var(--accent);
+  text-decoration:none;border-bottom:1px solid var(--accent);
+  padding-bottom:1px;transition:opacity 0.18s;
+}
+.prog-links a:hover{opacity:0.65}
+
+/* ── EVENTS PAGE ── */
+.events-layout{max-width:var(--max);margin:0 auto;padding:40px 48px 80px}
+.events-grid{display:grid;grid-template-columns:3fr 2fr;gap:40px;align-items:start}
+.cal-wrap{
+  border:1px solid var(--rule);border-radius:10px;
+  overflow:hidden;background:var(--white);
+}
+.cal-wrap iframe{display:block;width:100%;height:520px;border:none}
+.events-side h3{
+  font-family:var(--font-display);font-size:20px;font-weight:400;
+  color:var(--ink);margin-bottom:10px;
+}
+.events-side p{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:18px}
+.social-rows{display:flex;flex-direction:column;gap:8px}
+.social-row{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 16px;border:1px solid var(--rule);border-radius:8px;
+  text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:500;
+  transition:border-color 0.18s,color 0.18s;
+}
+.social-row:hover{border-color:var(--accent);color:var(--accent)}
+.social-row svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.social-row-sub{margin-left:auto;font-size:11.5px;color:var(--ink-light);font-weight:400}
+
+/* ── CONNECT PAGE ── */
+.connect-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;max-width:var(--max);margin:0 auto;padding:40px 48px 80px;align-items:start}
+.connect-text p{font-size:14.5px;color:var(--ink-mid);line-height:1.75;margin-bottom:14px}
+.connect-box{
+  background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:26px;
+}
+.connect-box h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.connect-box p{font-size:13.5px;color:var(--ink-mid);line-height:1.7;margin-bottom:14px}
+.connect-email{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13.5px;font-weight:500;color:var(--accent);text-decoration:none;
+}
+.connect-email:hover{text-decoration:underline}
+.su-box{
+  margin-top:16px;background:var(--accent-lt);border-radius:8px;padding:16px 18px;
+}
+.su-box p{font-size:13px;color:var(--ink-mid);margin-bottom:8px}
+.su-box a{
+  font-size:13px;font-weight:500;color:var(--accent);
+  text-decoration:none;border-bottom:1px solid var(--accent);
+}
+
+/* ── LINKS PAGE ── */
+.links-layout{max-width:680px;margin:0 auto;padding:40px 48px 80px}
+.link-group{margin-bottom:40px}
+.link-group-title{
+  font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-light);margin-bottom:12px;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.link-card{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border:1px solid var(--rule);border-radius:8px;
+  text-decoration:none;color:var(--ink);margin-bottom:8px;
+  transition:border-color 0.18s,background 0.18s;gap:12px;
+}
+.link-card:hover{border-color:var(--accent);background:var(--cream)}
+.link-card-left{display:flex;align-items:center;gap:12px}
+.link-icon{
+  width:32px;height:32px;border-radius:7px;background:var(--accent-lt);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;
+}
+.link-title{font-size:14px;font-weight:500;color:var(--ink)}
+.link-desc{font-size:12.5px;color:var(--ink-light);margin-top:1px}
+.link-arrow{font-size:14px;color:var(--ink-light);flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);padding:36px 48px;
+}
+.footer-inner{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:14px;
+}
+.footer-logo{font-family:var(--font-display);font-size:15px;color:rgba(255,255,255,0.75);font-weight:400}
+.footer-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.18s}
+.footer-links a:hover{color:rgba(255,255,255,0.8)}
+.footer-copy{
+  font-size:11.5px;color:rgba(255,255,255,0.25);
+  width:100%;padding-top:14px;border-top:1px solid rgba(255,255,255,0.07);margin-top:6px;
+}
+
+/* ── MOBILE ── */
+@media(max-width:760px){
+  nav{padding:0 18px}
+  .nav-logo-text{display:none}
+  .nav-tabs li a{padding:0 10px;font-size:12.5px}
+  .section-inner,.page-header .section-inner,.prog-list,.events-layout,.connect-layout,.links-layout{padding-left:20px;padding-right:20px}
+  .hero-content{padding:0 20px}
+  .two-col,.events-grid,.connect-layout{grid-template-columns:1fr;gap:36px}
+  .offerings{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  footer{padding:30px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home');return false">
+  <a href="#" class="nav-logo" onclick="showPage('home');return false">
+    <img src="images/EA logo.png" alt="EA Warwick" style="height: 72px; width:auto;">
+  </a> 
+
+  <ul class="nav-tabs">
+    <li><a href="#" class="active" data-page="home"     onclick="showPage('home');     return false">Home</a></li>
+    <li><a href="#" data-page="programmes" onclick="showPage('programmes'); return false">Programmes</a></li>
+    <li><a href="#" data-page="events"     onclick="showPage('events');     return false">Events</a></li>
+    <li><a href="#" data-page="connect"    onclick="showPage('connect');    return false">Connect</a></li>
+    <li><a href="#" data-page="links"      onclick="showPage('links');      return false">Links</a></li>
+  </ul>
+
+  <div class="nav-social">
+    <a href="https://www.instagram.com/ea_warwick/" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://chat.whatsapp.com/GgCn1MyIFiY8OjFofHi7jR" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+</nav>
+
+
+<!-- ═══ PAGE: HOME ═══ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Effective Altruism · University of Warwick</span>
+      <h1 class="hero-title">Helping you find <em>your</em> path to greater impact</h1>
+      <p class="hero-sub">You have 80,000 hours in your career. We help you use them to do the most good.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary" onclick="showPage('programmes');return false">Explore programmes</a>
+        <a href="https://www.effectivealtruism.org/" target="_blank" class="btn btn-ghost-light">What is EA?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- What is the society -->
+  <div class="section section-cream" id="home-about">
+    <div class="section-inner">
+      <div class="label">What is EA Warwick?</div>
+      <h2 class="h2">A community built around doing good, better</h2>
+      <p class="body-text" style="max-width:580px">
+        EA Warwick is part of a global movement called Effective Altruism — dedicated to using reason and evidence to find the most effective ways to help others. We help Warwick students think clearly about how to have a real impact. <a href="https://www.effectivealtruism.org/" target="_blank" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">Learn more about Effective Altruism</a>
+      </p>
+
+      <div style="margin-top:32px;max-width:640px">
+        <p style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px">Our core principles</p>
+        <ul class="principles">
+          <li><span class="pnum">01</span><span>We work together to think clearly and seek truth, because this helps us do more good.</span></li>
+          <li><span class="pnum">02</span><span>Our resources are limited, so we prioritise the ways we can help most effectively.</span></li>
+          <li><span class="pnum">03</span><span>We strive to help those that need it the most, regardless of whether they are similar to us or live near us in space or time.</span></li>
+          <li><span class="pnum">04</span><span>We take actions that benefit many over actions that benefit a few.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- How we help -->
+  <div class="section">
+    <div class="section-inner">
+      <div class="label">What we offer</div>
+      <h2 class="h2">Find your path to doing good better</h2>
+      <p class="body-text" style="max-width:560px">
+        Whether you're curious about EA ideas, thinking through your career, or ready to pursue research that matters, we're here to help.
+      </p>
+      <div class="offerings">
+        <div class="offering">
+          <div class="offering-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="offering-title">1-1 Career Chats</div>
+          <div class="offering-desc">Personalised conversations to help you find clarity on your career and pursue it with confidence.</div>
+        </div>
+        <div class="offering">
+          <div class="offering-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="offering-title">Fellowships</div>
+          <div class="offering-desc">Structured 8-week programmes exploring EA ideas, AI safety, alternative proteins, and high-impact research. <a href="#" onclick="showPage('programmes');return false" style="color:var(--accent);font-size:12px">See all →</a></div>
+        </div>
+        <div class="offering">
+          <div class="offering-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg></div>
+          <div class="offering-title">Collaborations</div>
+          <div class="offering-desc">We partner with other societies that want to make a positive difference, like Warwick AI and the Alternative Proteins Project.</div>
+        </div>
+        <div class="offering">
+          <div class="offering-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="offering-title">Speaker Events</div>
+          <div class="offering-desc">Regular talks from experts on high-impact, neglected, and tractable issues like AI safety and pandemic prevention.</div>
+        </div>
+        <div class="offering">
+          <div class="offering-icon"><svg viewBox="0 0 24 24"><path d="M3 9h18M9 21V9"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+          <div class="offering-title">Co-working</div>
+          <div class="offering-desc">A quiet space to work alongside other EAs. Held every Wednesday, 4–6 pm in FAB 3.28.</div>
+        </div>
+        <div class="offering">
+          <div class="offering-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="offering-title">From laid-back socials to speaker talks</div>
+          <div class="offering-desc">We host a variety of events. To find out when and where these are happening, subscribe to our calendar or follow us on social media.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+
+<!-- ═══ PAGE: PROGRAMMES ═══ -->
+<div class="page" id="page-programmes">
+  <div class="page-header">
+    <div class="section-inner">
+      <div class="label">Programmes</div>
+      <h2 class="h2">Structured learning for deeper impact</h2>
+      <p class="body-text">Each programme runs for 8 weeks, starting from Week 3 of term. All are free and student-led. No prior knowledge of EA is needed — just curiosity and a willingness to think carefully.</p>
+    </div>
+  </div>
+
+  <div class="prog-list">
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">📖</span>
+          <span class="prog-name">Introductory Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Learn and discuss EA ideas with a small group of like-minded students. The Intro Fellowship is a free 8-week programme with weekly readings and facilitated discussions exploring the most pressing challenges of our time — and how to act on them.</p>
+        <p>Fellows join a campus community of dedicated altruists and gain access to socials, co-working space, and a global network of people committed to doing as much good as possible.</p>
+        <div class="prog-links">
+          <a href="https://forms.gle/7SGXAvJjM6a83VYaA" target="_blank">Apply</a>
+          <a href="https://docs.google.com/document/d/1mJmmiLp0BK4ZTjt4b21huVcuCPnT1CwTU_Ihtx62yzE/edit" target="_blank">View syllabus</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">🤖</span>
+          <span class="prog-name">AI Safety Discussion Group</span>
+        </div>
+        <span class="prog-tag">7 weeks · with Warwick AI</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Co-hosted with Warwick AI, this 7-week fellowship is your entry point to a career in AI safety, ethics, and governance. Choose between a technical or governance track, with weekly readings and small-group discussions.</p>
+        <p>After building the foundations, you'll have the opportunity to develop a project to launch your work in AI safety.</p>
+        <div class="prog-links">
+          <a href="https://forms.gle/Fn7MHhroT9pAR1Ev9" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">🌱</span>
+          <span class="prog-name">Alternative Proteins Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Explore solutions to some of the most pressing challenges of our time — from food insecurity to environmental degradation and animal suffering. The fellowship examines plant-based foods, fermentation technologies, and cultivated meat.</p>
+        <p>A free, student-led programme combining self-paced learning with weekly sessions, running from Week 3 to Week 10.</p>
+        <div class="prog-links">
+          <a href="https://forms.office.com/pages/responsepage.aspx?id=vc-6Ce9HZUSSZTVG8ur2vKfaomMuZc5NlIGFGjO-8cxURFY0R1o3Q1NGOVM3QUNJTTY0QzRMRzZLWS4u" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">✍️</span>
+          <span class="prog-name">Effective Thesis Accelerator</span>
+        </div>
+        <span class="prog-tag">8 weeks · ~5 hrs/week</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Designed to take you from an initial thesis or research idea to a fully developed, high-impact proposal with a clear Theory of Change. Combines self-directed modules and worksheets with weekly group discussions.</p>
+        <p>You'll explore what makes research high-impact, map critical global problems, and identify clear pathways to change. Facilitators offer 1-1 feedback on your projects throughout.</p>
+        <div class="prog-links">
+          <a href="https://airtable.com/appcKo5GTmHnUaBlg/pag4aNj4pAwKOeD1I/form" target="_blank">Apply</a>
+          <a href="https://www.effectivethesis.org/key-services/8-week-accelerator" target="_blank">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">📜</span>
+          <span class="prog-name">Effective Project Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks · ~5 hrs/week</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Learn how to do high-impact research and produce a small piece of work that can support applications to prestigious programmes like ERA Cambridge. The fellowship walks you through problem selection, finding the bottleneck, developing a Theory of Change, and executing the project.</p>
+        <p>This programme runs alongside the Effective Thesis Accelerator.</p>
+        <div class="prog-links">
+          <a href="https://forms.gle/MU6pTWsCiXV9Pk2a7" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /page-programmes -->
+
+
+<!-- ═══ PAGE: EVENTS ═══ -->
+<div class="page" id="page-events">
+  <div class="page-header">
+    <div class="section-inner">
+      <div class="label">Events</div>
+      <h2 class="h2">Something for everyone, every week</h2>
+      <p class="body-text">From speaker talks to laid-back socials, we run events throughout term. Subscribe to the calendar below, or follow us on social media to stay in the loop.</p>
+    </div>
+  </div>
+
+  <div class="events-layout">
+    <div class="events-grid">
+      <div>
+        <div class="cal-wrap">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FLondon&showPrint=0&mode=AGENDA&showNav=1&showTitle=0&hl=en_GB&src=ZWIyZDg0Njk4ZTg5MzA4NmM2N2VkNGJhMWZkOTU2NDIxODVjZjYzMDdkZmZiYTUzYjhlYzQzZmY2OGMxYzYwZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%232d5a3d"
+            frameborder="0"
+            scrolling="no"
+            title="EA Warwick Events Calendar">
+          </iframe>
+        </div>
+        <p style="font-size:12px;color:var(--ink-light);margin-top:10px;padding-left:2px">
+          Can't see the calendar? <a href="https://calendar.google.com/calendar/embed?src=ZWIyZDg0Njk4ZTg5MzA4NmM2N2VkNGJhMWZkOTU2NDIxODVjZjYzMDdkZmZiYTUzYjhlYzQzZmY2OGMxYzYwZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank" style="color:var(--accent)">Open in Google Calendar</a>
+        </p>
+      </div>
+
+      <div class="events-side">
+        <h3>Stay in the loop</h3>
+        <p>Follow us on social media or join our WhatsApp group to get real-time updates on events, talks, and opportunities.</p>
+
+        <div class="social-rows">
+          <a href="https://www.instagram.com/ea_warwick/" target="_blank" class="social-row">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+            <span class="social-row-sub">@ea_warwick</span>
+          </a>
+          <a href="https://chat.whatsapp.com/HmYewIpP2HMBc3dS2g75o2" target="_blank" class="social-row">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp events group
+            <span class="social-row-sub">Join</span>
+          </a>
+          <a href="https://calendar.google.com/calendar/r?cid=ZWIyZDg0Njk4ZTg5MzA4NmM2N2VkNGJhMWZkOTU2NDIxODVjZjYzMDdkZmZiYTUzYjhlYzQzZmY2OGMxYzYwZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank" class="social-row">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Subscribe to calendar
+            <span class="social-row-sub">Google Calendar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-events -->
+
+
+<!-- ═══ PAGE: CONNECT ═══ -->
+<div class="page" id="page-connect">
+  <div class="page-header">
+    <div class="section-inner">
+      <div class="label">Connect</div>
+      <h2 class="h2">Get in touch</h2>
+      <p class="body-text">If you have any questions, ideas, or just want to talk about something, please reach out through any of our socials.</p>
+    </div>
+  </div>
+
+  <div style="max-width:var(--max);margin:0 auto;padding:40px 48px 80px">
+    <div class="social-rows" style="max-width:520px">
+      <a href="mailto:eawarwick.society@gmail.com" class="social-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email us
+        <span class="social-row-sub">eawarwick.society@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/ea_warwick/" target="_blank" class="social-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+        <span class="social-row-sub">@ea_warwick</span>
+      </a>
+      <a href="https://chat.whatsapp.com/GgCn1MyIFiY8OjFofHi7jR" target="_blank" class="social-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        WhatsApp
+        <span class="social-row-sub">Join the community group</span>
+      </a>
+      <a href="https://www.warwicksu.com/societies-sports/societies/effective_altruism/" target="_blank" class="social-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Warwick SU
+        <span class="social-row-sub">Join us — it's free!</span>
+      </a>
+    </div>
+  </div>
+</div><!-- /page-connect -->
+
+
+<!-- ═══ PAGE: LINKS ═══ -->
+<div class="page" id="page-links">
+  <div class="page-header">
+    <div class="section-inner">
+      <div class="label">Links</div>
+      <h2 class="h2">Everything in one place</h2>
+      <p class="body-text">Useful links across our programmes, socials, and the broader EA ecosystem.</p>
+    </div>
+  </div>
+
+  <div class="links-layout">
+
+    <div class="link-group">
+      <div class="link-group-title">EA Warwick</div>
+      <a href="https://www.warwicksu.com/societies-sports/societies/effective_altruism/" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">🏛️</div>
+          <div>
+            <div class="link-title">Join on Warwick SU</div>
+            <div class="link-desc">Official membership — free for all Warwick students</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://www.instagram.com/ea_warwick/" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">📸</div>
+          <div>
+            <div class="link-title">Instagram</div>
+            <div class="link-desc">@ea_warwick — events, updates, and community</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://chat.whatsapp.com/GgCn1MyIFiY8OjFofHi7jR" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">💬</div>
+          <div>
+            <div class="link-title">WhatsApp community</div>
+            <div class="link-desc">Main community group</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://chat.whatsapp.com/HmYewIpP2HMBc3dS2g75o2" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">📅</div>
+          <div>
+            <div class="link-title">WhatsApp events group</div>
+            <div class="link-desc">Notifications for upcoming events</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="mailto:eawarwick.society@gmail.com" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">✉️</div>
+          <div>
+            <div class="link-title">Email the exec</div>
+            <div class="link-desc">eawarwick.society@gmail.com</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="link-group">
+      <div class="link-group-title">Programme applications</div>
+      <a href="https://forms.gle/7SGXAvJjM6a83VYaA" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">📖</div>
+          <div>
+            <div class="link-title">Introductory Fellowship — Apply</div>
+            <div class="link-desc">8-week introduction to EA ideas</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://forms.gle/Fn7MHhroT9pAR1Ev9" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">🤖</div>
+          <div>
+            <div class="link-title">AI Safety Discussion Group — Apply</div>
+            <div class="link-desc">With Warwick AI, technical or governance track</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://forms.office.com/pages/responsepage.aspx?id=vc-6Ce9HZUSSZTVG8ur2vKfaomMuZc5NlIGFGjO-8cxURFY0R1o3Q1NGOVM3QUNJTTY0QzRMRzZLWS4u" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">🌱</div>
+          <div>
+            <div class="link-title">Alt Proteins Fellowship — Apply</div>
+            <div class="link-desc">Plant-based foods, fermentation, cultivated meat</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://airtable.com/appcKo5GTmHnUaBlg/pag4aNj4pAwKOeD1I/form" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">✍️</div>
+          <div>
+            <div class="link-title">Effective Thesis Accelerator — Apply</div>
+            <div class="link-desc">Turn your research idea into a high-impact proposal</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://forms.gle/MU6pTWsCiXV9Pk2a7" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">📜</div>
+          <div>
+            <div class="link-title">Effective Project Fellowship — Apply</div>
+            <div class="link-desc">Build a research portfolio for ERA Cambridge and beyond</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+
+    <div class="link-group">
+      <div class="link-group-title">EA resources</div>
+      <a href="https://www.effectivealtruism.org/articles/introduction-to-effective-altruism" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">🌍</div>
+          <div>
+            <div class="link-title">Introduction to Effective Altruism</div>
+            <div class="link-desc">effectivealtruism.org — the canonical starting point</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://80000hours.org" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">💼</div>
+          <div>
+            <div class="link-title">80,000 Hours</div>
+            <div class="link-desc">Career guidance for doing the most good</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://forum.effectivealtruism.org" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">💬</div>
+          <div>
+            <div class="link-title">EA Forum</div>
+            <div class="link-desc">The global hub for EA discussion and research</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a href="https://www.effectivealtruism.uk/causes" target="_blank" class="link-card">
+        <div class="link-card-left">
+          <div class="link-icon">🔍</div>
+          <div>
+            <div class="link-title">EA cause areas</div>
+            <div class="link-desc">AI safety, global health, animal welfare, biosecurity, and more</div>
+          </div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+
+  </div>
+</div><!-- /page-links -->
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Effective Altruism Warwick</span>
+    <ul class="footer-links">
+      <li><a href="#" onclick="showPage('home');return false">Home</a></li>
+      <li><a href="#" onclick="showPage('programmes');return false">Programmes</a></li>
+      <li><a href="#" onclick="showPage('events');return false">Events</a></li>
+      <li><a href="#" onclick="showPage('connect');return false">Connect</a></li>
+      <li><a href="#" onclick="showPage('links');return false">Links</a></li>
+      <li><a href="https://www.effectivealtruism.org" target="_blank">effectivealtruism.org ↗</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Effective Altruism Warwick · University of Warwick Students' Union</p>
+  </div>
+</footer>
+
+<script>
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tabs a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.querySelector('[data-page="' + name + '"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function toggleProg(header) {
+  const item = header.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.prog-item').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
