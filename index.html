@@ -364,6 +364,23 @@ footer{
     height:44px;
     white-space:nowrap;
   }
+  /* What we offer grid - single column */
+  .offerings{grid-template-columns:1fr}
+  
+  /* Programmes - hide the tag so it doesn't overflow */
+  .prog-tag{display:none}
+  
+  /* Events - stack calendar and side panel */
+  .events-grid{grid-template-columns:1fr;gap:24px}
+  .cal-wrap iframe{height:380px}
+  
+  /* General padding reduction */
+  .prog-list{padding:24px 16px 48px}
+  .events-layout{padding:24px 16px 48px}
+  .page-header .section-inner{padding:32px 16px}
+  .section-inner{padding-left:16px;padding-right:16px}
+  .prog-header{padding:16px 14px;gap:8px}
+  .prog-body{padding:0 14px 18px 14px}
 </style>
 </head>
 <body>
