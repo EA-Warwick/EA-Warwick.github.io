@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Programmes · EA Warwick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/EA logo.png" alt="EA Warwick" style="height: 56px; width:auto;">
+  </a>
+
+  <ul class="nav-tabs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programmes.html" class="active">Programmes</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="connect.html">Connect</a></li>
+    <li><a href="links.html">Links</a></li>
+  </ul>
+
+  <div class="nav-social">
+    <a href="https://www.instagram.com/ea_warwick/" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://chat.whatsapp.com/GgCn1MyIFiY8OjFofHi7jR" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<div class="page" id="page-programmes">
+  <div class="page-header">
+    <div class="section-inner">
+      <div class="label">Programmes</div>
+      <h2 class="h2">Structured learning for deeper impact</h2>
+      <p class="body-text">Each programme runs for 8 weeks, starting from Week 3 of term. All are free and student-led. No prior knowledge of EA is needed.</p>
+    </div>
+  </div>
+
+  <div class="prog-list">
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">📖</span>
+          <span class="prog-name">Introductory Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Learn and discuss EA ideas with a small group of like-minded students. The Intro Fellowship is a free 4-week programme with weekly readings and discussions exploring the most pressing challenges of our time — and how to act on them.</p>
+        <p>Fellows join a campus community of dedicated altruists and gain access to socials, co-working space, and a global network of people committed to doing as much good as possible. The application deadline for this programme is <b>Sunday, 11th October.</b></p>
+        <div class="prog-links">
+          <a href="https://forms.gle/oYzCP3ZkiCdUhvSu8" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">🏛️</span>
+          <span class="prog-name">Arête Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Designed for students ready to commit to starting an altruistic career and looking to engage in a selective, structured program based on EA’s core principles. 
+          Similar to the Introductory Fellowship, this is an 8-week programme with weekly readings and facilitated discussions exploring the world’s most pressing challenges—with a direct emphasis on practical outcomes and career execution.</p>
+
+        <p> The application deadline for this programme is <b>Sunday, 11th October.</b> This programme runs alongside the Introductory Fellowship.</p>
+        <div class="prog-links">
+          <a href="https://forms.gle/oYzCP3ZkiCdUhvSu8" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">🤖</span>
+          <span class="prog-name">AI Intro Fellowship</span>
+        </div>
+        <span class="prog-tag">7 weeks · with Warwick AI</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Co-hosted with Warwick AI, this 7-week fellowship is your entry point to a career in AI safety, ethics, and governance. Choose between a technical or governance track, with weekly readings and small-group discussions.</p>
+        <p>After building the foundations, you'll have the opportunity to develop a project to launch your work in AI safety. The application deadline for this programme is <b>Friday, 16th October.</b></p>
+        <div class="prog-links">
+          <a href="https://forms.gle/EFz1EKGMSbk6UeDz8" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">🌱</span>
+          <span class="prog-name">Alternative Proteins Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks · with Alternative Protein Project Warwick</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Explore solutions to some of the most pressing challenges of our time — from food insecurity to environmental degradation and animal suffering. The fellowship examines plant-based foods, fermentation technologies, and cultivated meat.</p>
+        <p>A free, student-led programme combining self-paced learning with weekly sessions, running from Week 3 to Week 10. The application deadline for this programme is <b>Friday, 9th October.</b></p>
+        <div class="prog-links">
+          <a href="https://forms.gle/6ue2tPZDiDY9HXqq8" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">🧬</span>
+          <span class="prog-name">Biosecurity Reading Group</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Discover the Biosecurity Cause Area with other absolute beginners. Learn about preventing catastrophic or engineered pandemics, especially in the context of emerging technologies, and how to respond to these risks. 
+          no experience required and all backgrounds welcome. </p>
+        <div class="prog-links">
+          <a href="https://forms.gle/FRVe4xiSzoq5XTTdA" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">✍️</span>
+          <span class="prog-name">Effective Thesis Accelerator</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Designed to take you from an initial thesis or research idea to a fully developed, high-impact proposal with a clear Theory of Change. Combines self-directed modules and worksheets with weekly group discussions.</p>
+        <p>You'll explore what makes research high-impact, map critical global problems, and identify clear pathways to change. Facilitators offer 1-1 feedback on your projects throughout.  The application deadline for this programme is <b>Sunday, 11th October.</b></p>
+        <div class="prog-links">
+          <a href="https://airtable.com/appcKo5GTmHnUaBlg/pagLmbAMdbqVLo1xA/form" target="_blank">Apply</a>
+          <a href="https://www.effectivethesis.org/key-services/8-week-accelerator" target="_blank">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-item">
+      <div class="prog-header" onclick="toggleProg(this)">
+        <div class="prog-left">
+          <span class="prog-emoji">📜</span>
+          <span class="prog-name">Effective Project Fellowship</span>
+        </div>
+        <span class="prog-tag">8 weeks</span>
+        <span class="prog-toggle">+</span>
+      </div>
+      <div class="prog-body">
+        <p>Learn how to do high-impact research and produce a small piece of work that can support applications to prestigious programmes like ERA Cambridge. The fellowship walks you through problem selection, finding the bottleneck, developing a Theory of Change, and executing the project.</p>
+        <p> The application deadline for this programme is <b>Sunday, 11th October.</b> This programme runs alongside the Effective Thesis Accelerator.</p>
+        <div class="prog-links">
+          <a href="https://forms.gle/44rCRivaCFRCBEWG7" target="_blank">Apply</a>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- closes prog-list -->
+  <div style="max-width:var(--max);margin:0 auto;padding:0 48px 64px;text-align:center">
+    <p style="font-size:15px;color:var(--ink-mid)">
+      Not sure which programme is right for you? Don't hesitate to 
+      <a href="connect.html" style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none;font-weight:500">reach out!</a>
+    </p>
+  </div>
+
+</div><!-- /page-programmes -->
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Effective Altruism Warwick</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="programmes.html">Programmes</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="connect.html">Connect</a></li>
+      <li><a href="links.html">Links</a></li>
+      <li><a href="https://www.effectivealtruism.org" target="_blank">effectivealtruism.org ↗</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Effective Altruism Warwick · University of Warwick Students' Union</p>
+  </div>
+</footer>
+
+<script>
+function toggleProg(header) {
+  const item = header.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.prog-item').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

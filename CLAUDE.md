@@ -4,19 +4,19 @@ Static site for EA Warwick (Effective Altruism society at the University of Warw
 
 ## Structure
 
-- `index.html` — the entire site: inline `<style>`, markup, and a small inline `<script>` at the bottom.
+- `index.html` — Home (hero, about, "what we offer").
+- `programmes.html` — fellowship accordions; contains the small inline `toggleProg()` script.
+- `events.html` — embedded Google Calendar and social links.
+- `connect.html` — contact links.
+- `links.html` — link directory.
+- `styles.css` — all shared styles for every page.
 - `images/` — `EA logo.png` (nav logo) and `hero.png`.
 - `CNAME` — custom domain for hosting.
 
-## How `index.html` works
+## Conventions
 
-- It is a single-page app with tabbed "pages": `<div class="page" id="page-NAME">` for `home`, `programmes`, `events`, `connect`, `links`. Only the one with `.active` is shown.
-- Nav links call `showPage('NAME')` and carry `data-page="NAME"`; adding a page means adding both a `page-NAME` div and a matching nav link.
-- Programme entries are accordions (`.prog-item`) toggled by `toggleProg()`; only one is open at a time.
-- Design tokens (colours, fonts, widths) are CSS variables on `:root` at the top of the `<style>` block — reuse them rather than hard-coding values. Fonts are Inter (body) and Lora (display) from Google Fonts.
-- Section backgrounds alternate via classes like `section-cream`.
-
-## Notes
-
-- There used to be separate `programmes/`, `events/`, and `links/` directories; they were removed and their content folded into tabs in `index.html`. Don't link to those paths.
-- To preview, just open `index.html` in a browser.
+- Each page is standalone HTML with the same `<head>`, `<nav>`, and `<footer>` copied in. There are no includes, so a nav or footer change has to be made in all five files. The current page's nav link gets `class="active"`.
+- Page content sits in `<div class="page" id="page-NAME">`. Home uses `#page-home` to drop the nav padding under the full-height hero.
+- Internal links are plain relative hrefs (`programmes.html`, etc.).
+- Design tokens (colours, fonts, widths) are CSS variables on `:root` at the top of `styles.css`. Reuse them rather than hard-coding values. Fonts are Inter (body) and Lora (display) from Google Fonts.
+- To preview, open `index.html` directly or serve the folder (e.g. `python -m http.server`).
