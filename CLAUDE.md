@@ -1,6 +1,6 @@
 # EA Warwick website
 
-Static site for EA Warwick (Effective Altruism society at the University of Warwick), served at `eawarwick.org` (see `CNAME`, likely GitHub Pages). No build step, framework, or dependencies — edit files and push.
+Static site for EA Warwick (Effective Altruism society at the University of Warwick), hosted on GitHub Pages at `eawarwick.org` (custom domain set in `CNAME`). No build step, framework, or dependencies. Pushing to `main` publishes the live site.
 
 ## Structure
 
