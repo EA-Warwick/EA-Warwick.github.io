@@ -12,11 +12,12 @@ Static site for EA Warwick (Effective Altruism society at the University of Warw
 - `styles.css` — all shared styles for every page.
 - `images/` — `EA logo.png` (nav logo) and `hero.png`.
 - `CNAME` — custom domain for hosting.
+- `serve.py` — local preview server (not part of the site).
 
 ## Conventions
 
 - Each page is standalone HTML with the same `<head>`, `<nav>`, and `<footer>` copied in. There are no includes, so a nav or footer change has to be made in all five files. The current page's nav link gets `class="active"`.
 - Page content sits in `<div class="page" id="page-NAME">`. Home uses `#page-home` to drop the nav padding under the full-height hero.
-- Internal links are plain relative hrefs (`programmes.html`, etc.).
+- Internal links are root-absolute and extensionless (`/programmes`, `/` for home). GitHub Pages maps `/programmes` to `programmes.html`. Don't add `.html` back to links.
 - Design tokens (colours, fonts, widths) are CSS variables on `:root` at the top of `styles.css`. Reuse them rather than hard-coding values. Fonts are Inter (body) and Lora (display) from Google Fonts.
-- To preview, open `index.html` directly or serve the folder (e.g. `python -m http.server`).
+- To preview, run `python serve.py` and open http://localhost:8000. It resolves extensionless URLs like GitHub Pages does. Opening files directly or using plain `python -m http.server` breaks the internal links.
